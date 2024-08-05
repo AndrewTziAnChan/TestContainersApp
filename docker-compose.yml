@@ -1,0 +1,11 @@
+﻿services:
+  postgres:
+    image: postgres:15
+  testcontainersapp:
+    image: testcontainersapp
+    build:
+      context: .
+      dockerfile: TestContainersApp/Dockerfile
+    depends_on:
+      - postgres
+

@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  testcontainersapp:
+    build:
+      context: "C:\\Users\\Andre\\RiderProjects\\TestContainersApp"
+      dockerfile: "TestContainersApp/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/TestContainersApp.dll"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "testcontainersapp:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Andre\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Andre\\RiderProjects\\TestContainersApp\\TestContainersApp:/app:rw"
+    - "C:\\Users\\Andre\\RiderProjects\\TestContainersApp:/src:rw"
+    working_dir: "/app"
