@@ -1,5 +1,4 @@
-﻿
-using Testcontainers.PostgreSql;
+﻿using Testcontainers.PostgreSql;
 
 public static class Program
 {
@@ -8,9 +7,10 @@ public static class Program
         Console.WriteLine("Starting");
         Console.WriteLine(string.Join('|', args));
 
-        PostgreSqlContainer container = new PostgreSqlBuilder().WithPortBinding(5432, true).Build();
+        PostgreSqlContainer container = new PostgreSqlBuilder()
+            .WithStartupCallback((resourceReaper, ct) => Task.Delay(TimeSpan.FromSeconds(5), ct)).Build();
         await container.StartAsync();
-        
+
         Console.WriteLine(container.GetConnectionString());
     }
 }

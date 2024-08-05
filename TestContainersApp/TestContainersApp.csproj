@@ -9,14 +9,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Testcontainers" Version="3.9.0" />
-      <PackageReference Include="Testcontainers.PostgreSql" Version="3.9.0" />
+        <PackageReference Include="Testcontainers" Version="3.9.0"/>
+        <PackageReference Include="Testcontainers.PostgreSql" Version="3.9.0"/>
     </ItemGroup>
 
 </Project>
