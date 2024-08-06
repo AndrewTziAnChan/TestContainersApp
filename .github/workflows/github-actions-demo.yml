@@ -25,3 +25,9 @@ jobs:
         run: dotnet build ./TestContainersApp.sln --no-restore
       - name: Test
         run: dotnet test ./TestContainersApp.sln --no-build
+        env:
+            TESTCONTAINERS_HOST_OVERRIDE: host.docker.internal
+      - name: Test2
+        run: docker build -f ./TestContainersApp/Dockerfile .
+        env:
+            TESTCONTAINERS_HOST_OVERRIDE: host.docker.internal

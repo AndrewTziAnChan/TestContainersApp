@@ -1,16 +1,13 @@
-﻿using DotNet.Testcontainers.Builders;
+﻿using DotNet.Testcontainers.Configurations;
 using Testcontainers.PostgreSql;
 
 public static class Program
 {
     public static async Task Main(string[] args)
     {
-        Console.WriteLine("Starting");
-        Console.WriteLine(string.Join('|', args));
-
+        Console.WriteLine(string.Join("|", args));
+        Console.WriteLine(TestcontainersSettings.DockerHostOverride);
         PostgreSqlContainer container = new PostgreSqlBuilder()
-            .WithPortBinding(5432, true)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(5432))
             .Build();
         await container.StartAsync();
 
