@@ -9,8 +9,6 @@ public static class Program
         Console.WriteLine(string.Join('|', args));
 
         PostgreSqlContainer container = new PostgreSqlBuilder()
-            .WithPortBinding(5432, true)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(5432))
             .Build();
         await container.StartAsync();
 
